@@ -1,0 +1,7 @@
+{% extends 'BoardModel/base.html' %}
+{% block title %}Index{% endblock title %}
+{% block headline %}목록 및 등록{% endblock headline %}
+{% block content %}
+<li><a href="{% url 'BoardModel:list' %}"><button type="button" class="btn btn-primary">목록</button></a></li><br>
+<li><a href="{% url 'BoardModel:add' %}"><button type="button" class="btn btn-primary">등록</button></a></li>
+{%endblock%}

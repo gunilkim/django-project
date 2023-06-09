@@ -1,0 +1,32 @@
+{% extends 'BoardModel/base.html' %}
+{% block title %}list{% endblock title %}
+{% block headline %}목록 보기{% endblock headline %}
+{% block content %}
+    <style>
+        table{
+            border: 2px solid black;
+            width: 300px;
+            border-collapse: collapse;
+        }
+    </style>
+    <form action="{% url 'BoardModel:list'%}" method="post" >
+        {% csrf_token %}
+        <table>
+            <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>조회수</th>
+            </tr>
+            {%for B in board%}
+            <tr>
+                <td>{{B.id}}</td>
+                <td><a href="{% url 'BoardModel:detail' B.id%}">{{B.title}}</a></td>
+                <td>{{B.writer}}</td>
+                <td>{{B.readcount}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        <button><a href="{% url 'BoardModel:add' %}">글 등록</a></button>
+    </form>
+{% endblock %}

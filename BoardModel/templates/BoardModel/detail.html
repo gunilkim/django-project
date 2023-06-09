@@ -1,0 +1,14 @@
+{% extends 'BoardModel/base.html' %}
+{% block title %}Detail{% endblock  %}
+{% block headline %}정보{% endblock  %}
+{% block content %}
+    글내용 날짜:{{board1.regdate}}<br>
+    조회수:{{board1.readcount}}<br>
+    작성자:{{board1.writer}}<br>
+    제목:{{board1.title}}<br>
+    내용:{{board1.content}}<hr>
+
+    <a href="{% url 'BoardModel:update' board1.id %}">수정</a><br>
+    <a href="{% url 'BoardModel:delete' board1.id %}">삭제</a><br>
+    <a href="{% url 'BoardModel:list'%}">목록보기</a>
+{% endblock  %}
